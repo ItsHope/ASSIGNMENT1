@@ -9,6 +9,9 @@
         padding: 0;
         margin: 0;
         font-family: montserrat;
+        background-image: url("backgroundimage.jpg");
+        background-repeat: no-repeat;
+        background-size: 300px 100px;
 
     }
 
@@ -99,6 +102,8 @@
        border: 3px solid;
 
    }
+
+
 
    .flex 
    {
