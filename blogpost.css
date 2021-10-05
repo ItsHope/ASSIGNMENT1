@@ -15,9 +15,18 @@
         
        
     }
+    .website-information {
+        background-color: white;
+        position: relative;
+        
+        bottom: -110px;
+    }
 
-    .h2 {
+    .Heading {
         font-family: cursive;
+        background-color: pink;
+        position: relative;
+        left: 50px;
     }
 
     .navbar {
