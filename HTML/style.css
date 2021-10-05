@@ -87,6 +87,13 @@
        border-radius: 10px;
 
    }
+   
+.blog {
+
+  background-color: plum;
+}
+
+
 
 
    .container 
@@ -97,6 +104,7 @@
    }
 
    .post {
+     background-color: pink;
        padding: 5px;
        margin: 10px;
        border: 3px solid;
