@@ -15,7 +15,37 @@
     <h1>Carb Cycling Weekly Plan </h1>
 
     <main id ="d3-container"></main>
-    <script src="index.js"></script>
+
+
+    <script>
+function processdata(mydata) {
+    console.log("data", mydata)
+    mydata.json()
+        .then((jsonData) => {
+            console.log("jsondata", jsonData.results[0])
+
+        })
+
+
+    console.log("processing")
+        }
+
+
+
+function GetIngredients() {
+    fetch("https://wger.de/api/v2/ingredient/?carbohydrates=10.400")
+        .then(processdata)
+}
+console.log("getting ingredients")
+GetIngredients();
+
+
+
+  
+    </script>
+
+
+
 
     
 </body>

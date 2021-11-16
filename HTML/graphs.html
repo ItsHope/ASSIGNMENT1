@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel ="stylesheet" href="/blogpost.css">
+
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+  
+
+
+</head>
+<body>
+
+    <div class = "graph" id="TheData"></div>
+
+    <nav class="navbar">
+        <label class= "logo">BassyFit</label>
+        <a href="#" class="toggle-button">
+           <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
+
+        </a>
+        
+
+
+        <span class="navbar-links">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/HTML/design.html">Website Design</a></li>
+            <li><a href="/HTML/Blogposts.html">Blogposts</a></li>
+            <li><a href="/HTML/datavisualisation.html">Data Visualisations</a></li>
+            
+        </ul>
+    </span>
+       
+    </nav>
+
+
+
+<h2>Graphs</h2>
+
+
+<script>
+
+
+
+function processdata(mydata) {
+    console.log("data", mydata)
+    mydata.json()
+        .then((jsonData) => {
+            console.log("jsondata", jsonData.results[0])
+
+        })
+
+
+    console.log("processing")
+        }
+
+
+
+function GetIngredients() {
+    fetch("https://wger.de/api/v2/ingredient/?carbohydrates=10.400")
+        .then(processdata)
+}
+console.log("getting ingredients")
+GetIngredients();
+
+
+
+
+
+
+
+        d3.json("jsondata")
+        .then(GetIngredients(mydata) {
+            
+        }
+        
+       
+</script>
+
+
+<svg id="jsonDemo" class="lightblue" width="80" height="50"></svg>
+
+
+    
+</body>
+</html>

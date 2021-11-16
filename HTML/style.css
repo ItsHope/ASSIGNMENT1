@@ -121,6 +121,36 @@
      height: 100%;
    }
 
+
+
+
+   svg {
+    border: 1px solid #000;
+  }
+
+
+
+  .graph {
+    width: auto;
+}
+
+.tooltip {
+    text-decoration: underline;
+}
+
+.axis {
+    font: 10px Georgia, Arial, sans-serif;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #dadada;
+    shape-rendering: crispEdges;
+}
+
+
+
+
    @media (max-width: 400px) 
    {
      .toggle-button 
