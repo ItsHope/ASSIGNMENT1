@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./HTML/style.css">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+    2 style="text-align: center;"> (Exam Graph): Provincial daily new cases: March to November 2021</h2>
+<h3 style="text-align: center;"> Click on a Nutrient to toggle data</h3>
+<script>d3.selectAll("h3").transition().style("color","#3498DB").duration(5000);</script>
+<div>
+  
+  <form>
+    <label><input type="radio" name="Nutrient" value="Sugar" checked>Sugar</label>
+    <label><input type="radio" name="Nutrient" value="Carbohydrates">Carbohydrates</label>
+    <label><input type="radio" name="Nutrient" value="fats"> fats</label>
+    <label><input type="radio" name="Nutrient" value="Salt"> Salt</label>
+    <label><input type="radio" name="Nutrient" value="Fibre"> Fibre</label>
+    <label><input type="radio" name="Nutrient" value="Vitamin C"> Vitamin C</label>
+    <label><input type="radio" name="Nutrient" value="Thiamine"> Thiamine</label>
+    <label><input type="radio" name="Nutrient" value="Vitamin A"> Vitamin A</label>
+    <label><input type="radio" name="Nutrient" value="Protein"> Protein</label>
+    <label><input type="radio" name="Nutrient" value="VitaminB12"> VitaminB12</labe>
+  </form>
+</div>
+
+
+<script>
+
+var margin = {top: 20, right: 120, bottom: 30, left: 100},
+    width = 1200 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var Nutrient = "Vitamin A",
+    parseDate = d3.time.format("%Y%m%d").parse;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d[Nutrient]); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("data.tsv", function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+    d["Sugar"] = +d["Sugar"];
+    d["Carbohydrates"] = +d["Carbohydrates"];
+    d["fats"] = +d["fats"];
+    d["Salt"] = +d["Salt"];
+    d["Fibre"] = +d["Fibre"];
+    d["Vitamin C"] = +d["Vitamin C"];
+    d["Thiamine"] = +d["Thiamine"];
+    d["Vitamin A"] = +d["Vitamin A"];
+    d["Protein"] = +d["Protein"];
+    d["VitaminB12"] = +d["VitaminB12"];
+  });
+
+  x.domain([data[0].date, data[data.length - 1].date]);
+  y.domain(d3.extent(data, function(d) { return d[Nutrient]; }));
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Nutrient value");
+
+  svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line);
+
+  svg.append("text")
+      .datum(data[data.length - 1])
+      .attr("class", "label")
+      .attr("transform", transform)
+      .attr("x", 3)
+      .attr("dy", ".35em")
+      .text(Nutrient);
+
+  d3.selectAll("input").on("change", change);
+
+  var timeout = setTimeout(function() {
+    d3.select("input[value=\"fats\"]").property("checked", true).each(change);
+  }, 2000);
+
+  function change() {
+    clearTimeout(timeout);
+
+    Nutrient = this.value;
+
+    // First transition the line & label to the new Nutrient.
+    var t0 = svg.transition().duration(950);
+    t0.selectAll(".line").attr("d", line);
+    t0.selectAll(".label").attr("transform", transform).text(Nutrient);
+
+    // Then transition the y-axis.
+    y.domain(d3.extent(data, function(d) { return d[Nutrient]; }));
+    var t1 = t0.transition();
+    t1.selectAll(".line").attr("d", line);
+    t1.selectAll(".label").attr("transform", transform);
+    t1.selectAll(".y.axis").call(yAxis);
+  }
+
+  function transform(d) {
+    return "translate(" + x(d.date) + "," + y(d[Nutrient]) + ")";
+  }
+});
+
+</script>
+
+<!---------------X--------------------Third Graph----------------X--------------------->
+</body>
+</html>

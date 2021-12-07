@@ -1,3 +1,40 @@
+ 
+  text {
+    font-family:var(--Maitree);
+    color: #3498DB;
+  }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  
+  .x.axis path {
+    display: inline;
+    shape-rendering: crispEdges;
+    font: var(--kufam);
+    
+  }
+  
+  .line {
+    fill: none;
+    stroke: palevioletred;
+    stroke-width: 1.5px;
+  }
+  
+  form {
+    background: var(--eternal);
+    
+   padding-left: 22rem;
+  right: 10px;
+  
+    
+  }
+  
+  
+
 *{
     
     text-decoration: none;
@@ -200,4 +237,5 @@
 
 
    }
+   
     
