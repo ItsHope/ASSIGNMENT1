@@ -236,6 +236,91 @@
      }
 
 
+
+     
+
+
    }
    
-    
+   /*..........................Chart 3 ----------------------*/
+.graph{
+       
+  background-color: rgb(255, 255, 255);
+  width: auto;
+  height: auto;
+  grid-template-columns: 45%;
+  padding: 0.2rem;
+  
+}
+.graph2{
+   
+background-color:#901eb3;
+ width: auto;
+ height: auto;
+  padding: 0.2rem;
+  
+}
+.pie {
+  text-align: center;
+  font-family: var(--kufam);
+}
+.pie-title {
+  font-family: var(--kufam);
+  color: rgb(255, 255, 255);
+}
+.pie-subtitle {
+  font-size: 20px;
+  font-family: var(--kufam);
+}
+.pie-font {
+  font-size: 18px;
+  font-family: var(--kufam);
+}
+
+/* legend */
+.legend {
+  font-size: 14px;
+  font-family: var(--kufam);
+  color: rgb(5, 92, 192);
+}
+rect {
+  cursor: pointer; 
+  stroke-width: 2;
+}
+rect.disabled {
+  fill: transparent !important;
+}
+
+/* chart */
+
+
+/* tooltip */
+.tooltip {
+  background: #eee;
+  box-shadow: 0 0 5px #999999;
+  color: rgb(163, 24, 145);
+  display: none;
+  font-size: 18px;
+  left: 130px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  top: 95px;
+  width: 80px;
+  z-index: 10;
+  font-family: var(--kufam);
+} 
+
+
+
+.button {
+  background-color: #b844cf;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
