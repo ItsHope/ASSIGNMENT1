@@ -16,14 +16,15 @@
        
     }
     .website-information {
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.774);
         position: relative;
         
-        bottom: -110px;
+        bottom: -50px;
+        font-family: "Lucida Console", "Courier New", monospace;
     }
 
     .Heading {
-        font-family: cursive;
+        font-family: "Lucida Console", "Courier New", monospace;
         background-color: pink;
         position: relative;
         left: 50px;
@@ -35,9 +36,14 @@
         align-items: center;
         background-color: black;
         color: white;
+        font-family: "Lucida Console", "Courier New", monospace;
         
     }
 
+
+    .Home-picture {
+        text-align: center;
+    }
     
     label.logo
     {
