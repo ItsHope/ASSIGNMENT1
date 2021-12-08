@@ -1,7 +1,7 @@
  
   text {
-    font-family:var(--Maitree);
-    color: #3498DB;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #a42fc2;
   }
   
   .axis path,
@@ -58,6 +58,7 @@
         align-items: center;
         background-color: black;
         color: white;
+        font-family: "Lucida Console", "Courier New", monospace;
         
     }
 
@@ -242,7 +243,7 @@
 
    }
    
-   /*..........................Chart 3 ----------------------*/
+   
 .graph{
        
   background-color: rgb(255, 255, 255);
@@ -277,7 +278,7 @@ background-color:#901eb3;
   font-family: var(--kufam);
 }
 
-/* legend */
+
 .legend {
   font-size: 14px;
   font-family: var(--kufam);
@@ -291,10 +292,7 @@ rect.disabled {
   fill: transparent !important;
 }
 
-/* chart */
 
-
-/* tooltip */
 .tooltip {
   background: #eee;
   box-shadow: 0 0 5px #999999;
